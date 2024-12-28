@@ -1,7 +1,5 @@
-![[title_image.png]]
-*Image generated using Google's Diffusion Model Imagen3 * [^1]  
-
-Here is a sample footnote [^1]
+![](title_image.png)
+*Image generated using Google's Diffusion Model Imagen3* [^1]  
 # The Math Behind Diffusion Networks
 ## Understanding Diffusion as a Stochastic Differential Equation
 
