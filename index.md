@@ -3,7 +3,22 @@
 
 This post mostly summarizes [^2] , a seminar given by Sanjay Shakkottai, Professor in the Department of Electrical and Computer Engineering at Univerity Of Texas, Austin. The original seminar including complete proofs of various theorems can be found [here](https://www.ifml.institute/node/481).
 
-# The Goal Of Diffusion Networks
+# Outline
+[Introduction](#introduction)
+
+[What is an SDE?](#what-is-an-sde)
+
+[How does an SDE Evolve? ](#how-does-the-density-function-of-an-sde-evolve)
+
+[The Ornstein–Uhlenbeck(OU) Process](#the-ornstein–uhlenbeckou-process)
+
+[Reversing the OU Process](#reversing-the-ou-process)
+
+[Tweedie's Formula](#tweedies-formula)
+
+[ODE Generative Flow Models](#ode-generative-flow-models)
+
+# Introduction
 ## What is an image?
 How can we interpret an image in a mathematical sense?
 
@@ -21,7 +36,7 @@ However we don't want any image \\( x \in \mathbb{R}^{n} \\), we want "typical" 
 
 *Here are 3 examples of images in  \\( \mathbb{R}^{n} \\). The first two images would be considered "typical" images. Left a photo of a man, middle a cartoon of a cat are both typical images found on the internet. Right is a nontypical image but is a nonetheless an image.* 
 
-## Goal
+## Goal Of Diffusion Networks
 
 We want to be able to sample from the distribution of typical images \\(P_0\\)
 
@@ -32,7 +47,8 @@ Note that typically we also wish to condition on a text description of an image 
 
 \\[ x \sim P_0(X \mid z), \quad x \in \mathbb{R}^n, \quad z \in \mathbb{R}^l \\]
 
-where \\(z\\) is an embedding of a text description. 
+where \\(z\\) is an embedding of a text description. For the rest of this post we will only consider the
+unconditional image distribution \\( P_0(X) \\) as the math is the same.
 
 
 ![](text_conditioned_image.jpg) | An example of an image generated with a diffusion network conditioned on the text prompt *Photo of a drawing on a fogged window glass depicting of a large heart and text inside "2025". The wooden traditional window is lightly framed by pebbledash grey granite stone. There is condensation and water droplets on the glass. There is a blurred nightly seaside landscape of Brittany in the background, with a red and white striped lighthouse, its light is on. Sun is about to rise.* found on [civit.ai](https://civitai.com/images/48379755) 
@@ -58,6 +74,14 @@ Once we have this process. We also wish to learn reverse process \\(f^{-1}(Y) \\
 ![](image_to_noise.png)
 
 *An example of the Markhov Process. The forward SDE, going from left to right, takes a typical image to noise. The reverse SDE, right to left takes a noise image to a typical image. We wish to learn this reverse process through a deep learning model. This will allow us to sample from \\(P_0(X)\\)*
+
+# What is an SDE?
+# How Does the Density Function of an SDE Evolve?
+# The Ornstein–Uhlenbeck(OU) Process
+# Reversing the OU Process
+# Tweedie's Formula
+# ODE Generative Flow Models
+
 
 ## References
 [^1]: Jason Baldridge, Jakob Bauer, Mukul Bhutani, Nicole Brichtova, Andrew Bunner, et al. “Imagen 3,” 2024. https://arxiv.org/abs/2408.07009. 
