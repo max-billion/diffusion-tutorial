@@ -76,6 +76,39 @@ Once we have this process. We also wish to learn reverse process \\(f^{-1}(Y) \\
 *An example of the Markhov Process. The forward SDE, going from left to right, takes a typical image to noise. The reverse SDE, right to left takes a noise image to a typical image. We wish to learn this reverse process through a deep learning model. This will allow us to sample from \\(P_0(X)\\)*
 
 # What is an SDE?
+## ODE
+Here is an ODE (Ordinary Differential Equation)
+\\[ dx_t = \underbrace{\mu(x_t,t)}_{\text{drift term}}dt , \quad x_t \in \mathbb{R}^n \\]
+
+Which describes the progression of a vector or particle over time with known start state \\(x_0  \in \mathbb{R}^n \\)
+
+\\(\mu(x_t,t)\\) is known as the drift term because it describes the direction and magnitude of a moving particle which 
+is a deterministic function of time \\(t\\) and the position of the particle at this time \\(x_t\\)
+
+The drift term can be roughly approximated with two known points \\(x_t\\) and \\(x_{t+h}\\) when \\(h\\) is small.
+
+\\[ x_{t+h} - x_t  = \mu(x_t,t)*h + \underbrace{o(h)}_{\text{vanishes as } h \text{ goes to 0 }} \\]
+
+## SDE
+
+An SDE(Stochastic Differential Equation) is an extension of an ODE with addition non-deterministic terms. 
+
+Here is a standard kind of SDE
+
+\\[ dx_t = \mu(x_t,t)dt \quad + \overbrace{\sigma(x_t,t)}^{\text{diffusion term}} * \underbrace{dB_t}_{\text{Brownian motion}}  \\]
+
+Unlike an ODE and this SDE is nondeterministic due to the nondeterministic term \\(dB_t\\) which describes standard Brownian motion.
+### Brownian Motion
+\\(B_t\\)  is a brownian motion which has 3 properties.
+* \\(B_0 = 0\\)
+* \\(B_t - B_s \sim \mathcal{N}(0, t-s) \\)
+* \\( dB_t \\) is indepdent of all other \\(dB_{t+h}\\)
+
+As well \\(x_0\\) is nonterministic random variable as well.
+
+\\[ x_0 \sim P_0(.) \\]
+
+
 # How Does the Density Function of an SDE Evolve?
 # The Ornstein–Uhlenbeck(OU) Process
 # Reversing the OU Process
